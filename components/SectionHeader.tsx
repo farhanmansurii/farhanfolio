@@ -3,12 +3,13 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
 export default function SectionHeader() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const container = containerRef.current;
+    const container = containerRef.current!;
     const containerWidth = container.offsetWidth;
-    const itemWidth = container.children[0].offsetWidth;
+    const itemWidth = (container.children[0] as HTMLElement).offsetWidth;
+
     const duration = (itemWidth + containerWidth) / 100;
 
     const tl = gsap.timeline({ repeat: -1 });
