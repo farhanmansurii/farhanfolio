@@ -42,7 +42,7 @@ export default function Marquee({ text, gap = 50, speed = 125, className }: Marq
   return (
     <div
       ref={containerRef}
-      className="marquee-container border-y-2 border-neutral-500 py-8"
+      className="marquee-container  py-8"
       style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}
     >
       <div

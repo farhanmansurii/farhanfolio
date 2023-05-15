@@ -1,24 +1,27 @@
+
 import AboutText from '@/components/AboutText';
+import Contact from '@/components/Contact';
+import Featured from '@/components/Featured';
 import Name from '@/components/Name';
+import Skills from '@/components/Skills';
+import Preloader from '@/components/loader/Preloader';
 import dynamic from 'next/dynamic';
 
 
-const DynamicContact = dynamic(() => import('@/components/Contact'));
-const DynamicSkills = dynamic(() => import('@/components/Skills'));
-{/* @ts-expect-error Server Component */ }
-const Featured = dynamic(() => import('@/components/Featured'));
+
+
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col ">
-      {/* <DynamicNavbar /> */}
+
       <Name />
 
       <AboutText />
-      <DynamicSkills />
-
+      <Skills />
+      {/* @ts-expect-error Server Component */}
       <Featured />
-      <DynamicContact />
+      <Contact />
     </main>
   )
 }

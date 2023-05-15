@@ -7,16 +7,16 @@ export default async function Featured() {
   const data = await getData()
   const featuredData = data.filter((e: Project) => e.isFeatured === true)
   return (
-    <div className='bg-[#f4f4f4] min-h-[115vh] text-[#1a1a1a] overflow-hidden'>
+    <div className='bg-[#f4f4f4]  text-[#1a1a1a] overflow-hidden'>
       <Marquee text='Featured Projects' />
-      <div className='flex absolute flex-col h-[90vh]   w-full'>
+      <div className='flex  flex-col h-full  w-full'>
         {featuredData.map((data: Project, i: number) =>
 
           <ProjectCard key={i} data={data} index={i} />
         )}
-        <div className='w-full lg:px-20 text-xl  relative items-center justify-between flex  py-10 '
+        <div className='w-10/12 mx-auto lg:px-20 text-xl  relative items-center justify-between flex  py-10 '
         >
-          <Link href={'/projects'} className='px-6 py-2 rounded-full bg-[#1a1a1a] font-thin text-white uppercase'>View all projects</Link>
+          <Link href={'/projects'} className='px-6 py-2 rounded-full bg-[#1a1a1a] font-thin text-white uppercase'>View all projects  ↗</Link>
         </div>
       </div>
     </div>

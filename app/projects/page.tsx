@@ -11,10 +11,10 @@ export default async function projects() {
   const data = await getData();
 
   return (
-    <main className="flex w-full text-black bg-[#f4f4f4] h-full  gap-4  font-neue flex-col   justify-center">
+    <main className="flex w-full py-10 text-black bg-[#f4f4f4] h-full  gap-4  font-neue flex-col   justify-center">
       <Marquee text='All projects' />
       <div
-        className="text-lg  my-16 h-full  gap-5 flex  flex-col"
+        className="text-lg   h-full  gap-5 flex  flex-col"
       >
         {data.map((e: Project, i: number) => (
           <Link href={`/${e.slug}`} key={e._id}>

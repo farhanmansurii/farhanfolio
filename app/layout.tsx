@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import Cursor from '@/components/Cursor'
 import PreLoader from '@/components/loader/Preloader';
+import Preloader from '@/components/loader/Preloader';
 
 
 export const metadata = {
@@ -61,16 +62,15 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+  }) {
+
   return (
     <html lang="en">
       <body >
-        <div>
-          <PreLoader />
-          <Cursor />
-          <Navbar />
-          {children}
-        </div>
+        <Preloader />
+        <Navbar />
+        <Cursor />
+        {children}
 
       </body>
     </html>

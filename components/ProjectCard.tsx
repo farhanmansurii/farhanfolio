@@ -74,7 +74,7 @@ export default function ProjectCard({ data, index }: ProjectCardProps) {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}
-        className='w-10/12 mx-auto border-b group relative items-center justify-between flex lg:px-20  pt-10 hover:py-10 duration-300'
+        className='w-10/12 mx-auto border-b group relative items-center justify-between flex lg:px-20  pb-10 md:pb-0 pt-10 hover:py-10 duration-300'
         key={data.slug}
         onMouseEnter={handleHover}
         onMouseLeave={handleLeave}
@@ -92,7 +92,7 @@ export default function ProjectCard({ data, index }: ProjectCardProps) {
             {data.title}
 
           </div>
-          <div ref={techStackRef} className='gap-2 my-2 flex flex-wrap'>
+          <div ref={techStackRef} className='gap-2 my-2 hidden md:flex flex-wrap'>
             {data.techStack.split(',').map((e, i) => (
               <span
                 key={i}

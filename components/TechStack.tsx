@@ -51,8 +51,8 @@ export default function TechStack2() {
     { name: "FramerMotion", color: "purple" },
   ];
   return (
-    <section className="skills-section" id="skills">
-      <div className="skills uppercase font-light  flex gap-5 text-3xl flex-col  ">
+    <section className="skills-section mb-20" id="skills">
+      <div className="skills uppercase font-light  flex gap-5 text-4xl lg:text-5xl flex-col  ">
         <div className="skillset--1  overflow-hidden">
           <h2 className='flex gap-5 whitespace-nowrap '>
             {skills1.map((skill, i) =>
