@@ -13,10 +13,10 @@ export default function Name() {
           <AnimTitle className='text-6xl   opacity-100' text='farhan mansuri' />
 
           <span className=''>
-            <AnimTitle className='opacity-40' text='Front-end developer' />
-            <AnimTitle className='opacity-20' text='PASSIONATE ABOUT
+            <AnimTitle className='text-white/40' text='Front-end developer' />
+            <AnimTitle className='text-white/30' text='PASSIONATE ABOUT
             CRAFTING' />
-            <AnimTitle className='opacity-20' text='SUPERB
+            <AnimTitle className='text-white/30' text='SUPERB
             WEB EXPERIENCES' />
 
 

@@ -1,62 +1,65 @@
 'use client'
-'use client'
 import React, { useState, useEffect } from 'react';
 import gsap from 'gsap';
 
 const Preloader = () => {
   const [progress, setProgress] = useState(0);
+  const [progress1, setProgress1] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setProgress(prevProgress => {
-        const newProgress = prevProgress + 34;
-        if (newProgress >= 100) {
+        const newProgress = prevProgress + Math.floor(Math.random() * 3) + 2;
+        if (newProgress >= 10) {
           clearInterval(intervalId);
-          return 100;
+          gsap.to(".preloader", {
+            duration: 0.7,
+            delay: 1,
+            y: "-100%",
+            onComplete: () => {
+              document.body.classList.remove("no-scroll");
+            }
+          });
+          return 10;
         }
         return newProgress;
       });
     }, 800);
 
-    setTimeout(() => {
-      gsap.to('.preloader', {
-        duration: 0.7,
-        y: '-100%',
-        onComplete: () => {
-          document.body.classList.remove('no-scroll');
-        },
+    const intervalId2 = setInterval(() => {
+      setProgress1(prevProgress => {
+        const newProgress = prevProgress + Math.floor(Math.random() * 2) + 3;
+        if (newProgress >= 9 || progress >= 10) {
+          clearInterval(intervalId2);
+          gsap.to(".preloader .white-screen", {
+            duration: 0.5,
+            y: "-100%",
+            onComplete: () => {
+              document.body.classList.remove("no-scroll");
+            }
+          });
+          return 0;
+        }
+        return newProgress;
       });
-    }, 4000);
+    }, 800);
 
     return () => {
+      clearInterval(intervalId2);
       clearInterval(intervalId);
     };
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      '.number-out',
-      { autoAlpha: 1, y: 0 },
-      { autoAlpha: 0, y: -5, duration: 0.6 }
-    );
-  }, [progress]);
-
-  useEffect(() => {
-    gsap.fromTo(
-      '.preloader-text',
-      { autoAlpha: 0, y: '50%' },
-      { autoAlpha: 1, y: '0%', duration: 0.5, delay: 0.7 }
-    );
-    gsap.to(
-      '.preloader-text',
-      { autoAlpha: 0, y: '-50%', duration: 0.5, delay: 3 }
-    );
-  }, []);
-
   return (
-    <div className="preloader" >
-      <div className="number-out text-4xl ">{progress}%</div>
-
+    <div className="preloader fixed top-0 left-0 w-screen h-screen  bg-white overflow-hidden">
+      < div className="white-screen fixed bottom-0 left-0 w-screen h-screen bg-[#1a1a1a]" ></div>
+      <div className="w-fit overflow-hidden">
+        <div className="text-[#f4f4f4] mix-blend-difference number-out counter-container overflow-hidden inline-flex p-2 text-4xl">
+          <h3 className="progess-number-1">{progress}</h3>
+          <h3 className="progess-number-2">{progress1}</h3>
+          <h3>%</h3>
+        </div>
+      </div>
     </div>
   );
 };

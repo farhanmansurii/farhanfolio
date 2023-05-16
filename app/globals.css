@@ -12,33 +12,37 @@ body{
   cursor: none !important;
 }
 .preloader {
+  
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  color: #1a1a1a;
-  background-color: #f4f4f4;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  justify-content: flex-end;
+  align-items: flex-end;
   z-index: 9999;
 }
 
-.number-out {
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-  font-size: 4rem;
-  color: #000;
-}
 
 
-.number-out {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
+.counter-container {
+    overflow: hidden;
+    height: 30vw;
+    min-height: 30vw;
+  }
 
+  h3 {
+    z-index: 9999;
+    margin-top: 0px;
+    margin-bottom: 2rem;
+    font-size: 30vw;
+    line-height: 30vw;
+    font-weight: 300;
+  }
 
 
 

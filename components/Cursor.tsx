@@ -1,6 +1,7 @@
 'use client'
 import { MutableRefObject, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Link from "next/link";
 
 const CURSOR_STYLES = {
   CURSOR: "fixed hidden bg-white mix-blend-difference w-3 h-3 select-none pointer-events-none z-50",
@@ -13,11 +14,19 @@ const isDesktop = () => {
 const Cursor = () => {
   const cursor = useRef<HTMLDivElement>(null);
 
-  const onHover = () => {
-    gsap.to(cursor.current, {
-      scale: 6,
-      duration: 0.4,
-    });
+  const onHover = (e: MouseEvent) => {
+    if (e.target instanceof HTMLAnchorElement) {
+      // If the element being hovered over is a Link component
+      gsap.to(cursor.current, {
+        scale: 6,
+        duration: 0.4,
+      });
+    } else {
+      gsap.to(cursor.current, {
+        scale: 3,
+        duration: 0.4,
+      });
+    }
   };
 
   const onUnhover = () => {
